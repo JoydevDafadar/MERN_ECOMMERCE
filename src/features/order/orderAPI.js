@@ -1,6 +1,6 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/orders", {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/orders", {
       method: "POST",
       headers:{
         "Content-type" : "application/json",
@@ -14,7 +14,7 @@ export function createOrder(order) {
 }
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/orders/'+order.id, {
+    const response = await fetch('https://backend-ecommerce-api.vercel.app/orders/'+order.id, {
       method: 'PATCH',
       body: JSON.stringify(order),
       headers: { 'content-type': 'application/json' },
@@ -34,7 +34,7 @@ export function fetchAllOrders(sort, pagination) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
     const response = await fetch(
-      'http://localhost:8080/orders/all?' + queryString
+      'https://backend-ecommerce-api.vercel.app/orders/all?' + queryString
     );
     const data = await response.json();
     const totalOrders = await response.headers.get('X-Total-Count');

@@ -2,7 +2,7 @@
 export function recheckUser() {
   return new Promise(async (resolve, reject) => {
     const token = localStorage.getItem('e-commerce-token');
-    const res = await fetch("http://localhost:8080/auth/check", {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/auth/check", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -16,7 +16,7 @@ export function recheckUser() {
 }
 export function createUser(userData) {
   return new Promise(async (resolve, reject) => {
-    const res = await fetch("http://localhost:8080/auth/signup", {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/auth/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -38,7 +38,7 @@ export function createUser(userData) {
 export function cheackUser(userData) {
   return new Promise(async (resolve, reject) => {
     try {
-      const res = await fetch("http://localhost:8080/auth/login", {
+      const res = await fetch("https://backend-ecommerce-api.vercel.app/auth/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -63,7 +63,7 @@ export function cheackUser(userData) {
 
 export function updateUser(userData) {
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/auth/" + userData.id, {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/auth/" + userData.id, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

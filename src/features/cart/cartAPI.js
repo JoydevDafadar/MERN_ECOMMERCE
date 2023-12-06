@@ -1,7 +1,7 @@
 // A mock function to mimic making an async request for data
 export function addToCart(item) {
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/cart", {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/cart", {
       method: "POST",
       headers:{
         "Content-type" : "application/json",
@@ -16,7 +16,7 @@ export function addToCart(item) {
 
 export function fetchCartItem (userId) {
   return new Promise( async (resolve) => {
-    const items = await fetch("http://localhost:8080/cart?user="+userId);
+    const items = await fetch("https://backend-ecommerce-api.vercel.app/cart?user="+userId);
     const data = await items.json();
 
     resolve( { data } );
@@ -25,7 +25,7 @@ export function fetchCartItem (userId) {
 
 export function updateCart(item) {
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/cart/"+item.id, {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/cart/"+item.id, {
       method: "PATCH",
       headers:{
         "Content-type" : "application/json",
@@ -39,7 +39,7 @@ export function updateCart(item) {
 }
 export function deleteCart(itemId) {
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/cart/"+itemId, {
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/cart/"+itemId, {
       method: "DELETE",
       headers:{
         "Content-type" : "application/json",

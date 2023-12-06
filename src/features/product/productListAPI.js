@@ -1,28 +1,28 @@
 // A mock function to mimic making an async request for data
 // export function fetchBrand( ) {
 //   return new Promise(async (resolve) => {
-//     const res = await fetch("http://localhost:8080/brand");
+//     const res = await fetch("https://backend-ecommerce-api.vercel.app/brand");
 //     const data = await res.json();
 //     resolve({data})
 //   });
 // }
 // export function fetchCategory( ) {
 //   return new Promise(async (resolve) => {
-//     const res = await fetch("http://localhost:8080/category");
+//     const res = await fetch("https://backend-ecommerce-api.vercel.app/category");
 //     const data = await res.json();
 //     resolve({data})
 //   });
 // }
 export function fetchProductById( id ) {
   return new Promise(async (resolve) => {
-    const res = await fetch(`http://localhost:8080/products/${id}`);
+    const res = await fetch(`https://backend-ecommerce-api.vercel.app/products/${id}`);
     const data = await res.json();
     resolve({data})
   });
 }
 export function updateProduct( product ) {
   return new Promise(async (resolve) => {
-    const res = await fetch(`http://localhost:8080/products/${product.id}`, {
+    const res = await fetch(`https://backend-ecommerce-api.vercel.app/products/${product.id}`, {
       method: "PATCH",
       headers : {
         'Content-type' : 'application/json'
@@ -35,7 +35,7 @@ export function updateProduct( product ) {
 }
 export function createProduct( product ) {
   return new Promise(async (resolve) => {
-    const res = await fetch(`http://localhost:8080/products/`,{
+    const res = await fetch(`https://backend-ecommerce-api.vercel.app/products/`,{
       method : "POST",
       headers : {
         "Content-type" : "application/json"
@@ -67,7 +67,7 @@ export function fetchProductsbyFilter( {filter, sort, pagenation} ) {
   }
 
   return new Promise(async (resolve) => {
-    const res = await fetch("http://localhost:8080/products?"+queryString);
+    const res = await fetch("https://backend-ecommerce-api.vercel.app/products?"+queryString);
     // console.log(queryString)
     const data = await res.json();
     const totalItem = res.headers.get('X-Total-Count');
